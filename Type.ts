@@ -6,11 +6,7 @@ type Player = {
   age?: Age;
 };
 
-function playerMaker(name: string): Player {
-  return {
-    name,
-  };
-}
+const playerMaker = (name: string): Player => ({ name });
 
 const nico = playerMaker("nico");
 nico.age = 12;
