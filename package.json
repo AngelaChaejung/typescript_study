@@ -1,0 +1,23 @@
+{
+  "name": "typescript_study",
+  "version": "1.0.0",
+  "description": "채정이가 혼자 타입스크립트를 공부하는 공간입니다",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelaChaejung/typescript_study.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngelaChaejung/typescript_study/issues"
+  },
+  "homepage": "https://github.com/AngelaChaejung/typescript_study#readme",
+  "dependencies": {
+    "typescript": "^5.0.2"
+  }
+}
