@@ -1,5 +1,5 @@
 type SuperPrint = {
-  <TypePlaceholder>(arr: TypePlaceholder[]): void;
+  <T>(arr: T[]): void;
 };
 
 const superPrint: SuperPrint = (arr) => {
@@ -12,12 +12,12 @@ superPrint(["a", "b", "c"]);
 superPrint([1, 2, true, false]);
 
 type SuperPrint1 = {
-  <TypePlaceholder1>(arr: TypePlaceholder1[]): TypePlaceholder1;
+  <T,M>(a: T[], b:M): T;
 };
 
 const superPrint1: SuperPrint1 = (arr) => arr[0];
 
-const b = superPrint1([1, 2, 3, 4]);
-const c = superPrint1([true, false, true]);
-const d = superPrint1(["a", "b", "c"]);
-const e = superPrint1([1, 2, true, false]);
+const b = superPrint1([1, 2, 3, 4],"");
+const c = superPrint1([true, false, true],1);
+const d = superPrint1(["a", "b", "c"],true);
+const e = superPrint1([1, 2, true, false],[]);

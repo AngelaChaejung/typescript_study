@@ -20,3 +20,6 @@ const luke: Player_<null> = {
 
 type Example = Array<number>;
 let example: Example = [1, 2, 3, 4, 5];
+ 
+function printAllNumbers(arr: number[]){}
+function printAllNumbers1(arr: Array<number>){}
