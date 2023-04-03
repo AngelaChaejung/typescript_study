@@ -69,3 +69,83 @@ function 결혼(월소득: number, 집보유: boolean, 매력점수: string): st
     return "결혼가능";
   }
 }
+
+function 내함수(x: number | string) {
+  let array: number[] = [];
+  if (typeof x === "number") {
+    array[0] = x;
+  } else {
+  }
+}
+내함수(123);
+
+type AnimalType = { name: string; age: number };
+
+let animal: AnimalType = { name: "happy", age: 2 };
+
+const 출생지역 = { region: "seoul" };
+출생지역.region = "busan";
+
+type Girlfirend = {
+  name?: string;
+};
+const 여친: Girlfirend = {
+  name: "엠버",
+};
+type Name = string;
+type Age = number;
+type Person = Name | Age;
+
+type PositionX = { x: number };
+type PositionY = { y: number };
+type NewType = PositionX & PositionY;
+
+let position: NewType = { x: 1, y: 30 };
+
+// object 타입을 정의한 type alias 두개를 & 기호로 합칠 때 중복된 속성이 있으면 어떻게 될까요?
+type Angela = { a: string };
+type Jella = { a: number };
+
+type Jellatube = Angela & Jella;
+
+let jellatube: Jellatube = { a: "2" };
+
+//object자료형, color라는 속성을 가질 수도있음, 항상 문자. size라는 속성이 있음 항상 숫자.
+//position이라는 변경불가능한 속성이 있음 항상 숫자가 담긴 array자료
+
+type Sookje = { color?: string; size: number; readonly position: number[] };
+
+type Saram = { name: string; phone: number; email: string; adult: boolean };
+
+//literal type
+let 이름: "kim";
+
+이름 = "kim";
+//미리 들어올 수 있는 자료를 정해놓는 문법
+
+let me: "대머리" | "솔로";
+//literal type쓰는 이유 1. 변수에 뭐가 들어올지 더 엄격하게 관리가능 2. 자동완성
+
+function 함(a: "hello"): 1 | 0 {
+  return 0;
+}
+함("hello");
+
+//가위,바위,보 중 1개 입력가능
+//가위,바위,보 만 들어올 수 있는 array를 return해야 함.
+
+function 가위바위보(a: "가위" | "바위" | "보"): ("가위" | "바위" | "보")[] {
+  return ["가위"];
+}
+
+const 변수 = "kim";
+
+var 자료 = {
+  이름: "kim",
+} as const;
+//object를 잠그고 싶을 땐 as const를 쓴다.
+//as const는 이 object는 literal type지정 알아서 해주세요하는 효과. 그리고 object속성들에 모두 readonly를 붙여주는 효과.
+자료.이름;
+function myfunction(a: "kim") {}
+myfunction("kim");
+myfunction(자료.이름);
