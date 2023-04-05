@@ -108,8 +108,6 @@ type Jella = { a: number };
 
 type Jellatube = Angela & Jella;
 
-let jellatube: Jellatube = { a: "2" };
-
 //object자료형, color라는 속성을 가질 수도있음, 항상 문자. size라는 속성이 있음 항상 숫자.
 //position이라는 변경불가능한 속성이 있음 항상 숫자가 담긴 array자료
 
@@ -149,3 +147,56 @@ var 자료 = {
 function myfunction(a: "kim") {}
 myfunction("kim");
 myfunction(자료.이름);
+
+//4APR
+type 함수타입 = (a: string) => number;
+// 1. 함수타입은 ()=>{} 화살표함수로 만든다.
+//2. 함수에 타입지정을 할 땐 함수표현식의 방식으로 작성한다. (함수 표현식에만 type alias사용가능 )
+let 함수2: 함수타입 = function (a) {
+  return 10;
+};
+
+//object 안에 함수 만들 수 있음.
+let 회원정보 = {
+  name: "kim",
+  //object 안에있는 함수 타입지정은 어떻게?
+  pluseOne(a: number) {
+    return a + 1;
+  },
+  함수3: (b: string) => {
+    b + b;
+  },
+};
+회원정보.pluseOne(3);
+회원정보.함수3("야");
+
+//콜백함수
+
+function 함1(a) {
+  a();
+}
+function 함2() {}
+함1(함2); // <- 여기서 함2를 콜백함수라고 한다. 함수가 실행되고나서 실행되는 함수 (순차적으로)
+//함수1실행해주세요-> 함수1내부 코드 a() 실행됨. 근데 파라미터를 a자리에 넣어서 함2() 실행됨.
+
+type Member = {
+  name: string;
+  age: number;
+  pluseOne: (x: number) => number;
+  changeName: () => void;
+};
+
+type CutZero = (a: string) => string;
+const cutZero: CutZero = (a) => {
+  if (a[0] === "0") {
+    return a.slice(1, -1);
+  }
+};
+console.log(cutZero("012345"));
+
+type RemoveDashType = (b: string) => number;
+
+const removeDash: RemoveDashType = (b) => {
+  let answer = b.replace(/-/g, "");
+  return parseFloat(answer);
+};
